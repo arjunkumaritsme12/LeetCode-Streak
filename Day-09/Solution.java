@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
 
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
@@ -12,13 +10,8 @@ class Solution {
         Result left = solve(root.left);
         Result right = solve(root.right);
 
-        if (left.depth == right.depth) {
-            return new Result(root, left.depth + 1);
-        }
-
-        if (left.depth > right.depth) {
-            return new Result(left.node, left.depth + 1);
-        }
+        if (left.depth == right.depth) return new Result(root, left.depth + 1);
+        if (left.depth > right.depth) return new Result(left.node, left.depth + 1);
 
         return new Result(right.node, right.depth + 1);
     }
