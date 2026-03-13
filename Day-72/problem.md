@@ -1,15 +1,21 @@
 # Plus One
 
-Link: https://leetcode.com/problems/complement-of-base-10-integer/description/?envType=daily-question&envId=2026-03-11
+Link: https://leetcode.com/problems/minimum-number-of-seconds-to-make-mountain-height-zero/description/?envType=daily-question&envId=2026-03-13
 
 Approach: 
 
-➡️ Start with a mask value = 1.
+➡️ Use Binary Search on time to find the minimum seconds needed.
 
-➡️ Keep increasing the mask using left shift and +1 until the mask becomes greater than or equal to n.
+➡️ For a given time m, calculate how much mountain height all workers can reduce.
 
-➡️ This mask creates a number that has all bits as 1 for the length of n in binary.
+➡️ Each worker reduces height in a pattern w × (1 + 2 + ... + x) which is an increasing time sequence.
 
-➡️ Finally, perform XOR (mask ^ n).
+➡️ Using the formula, compute the maximum height x a worker can reduce in m seconds.
 
-➡️ XOR with this mask flips all bits of n, which gives the bitwise complement of the number.
+➡️ Add the reduced height from all workers.
+
+➡️ If total reduced height < mountainHeight, increase time.
+
+➡️ Otherwise decrease time to find the minimum possible seconds.
+
+➡️ Finally return the smallest time where the mountain can be completely reduced.
